@@ -1,0 +1,12 @@
+services:
+  pde:
+    build: .
+    tty: true
+    stdin_open: true
+    ports:
+      - ${MARKDOWN_PREVIEW_PORT}:${MARKDOWN_PREVIEW_PORT}
+    environment:
+        MARKDOWN_PREVIEW_PORT: ${MARKDOWN_PREVIEW_PORT}
+    volumes:
+      - ${PWD}/.config:/root/.config
+      - ${PWD}/.local:/root/.local # Keep lazy and mason downloaded files cached
